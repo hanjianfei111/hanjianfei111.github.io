@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hanjianfei111.github.io</id>
     <title>Gridea</title>
-    <updated>2025-10-22T06:58:12.960Z</updated>
+    <updated>2025-10-22T07:12:55.320Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hanjianfei111.github.io"/>
     <link rel="self" href="https://hanjianfei111.github.io/atom.xml"/>
@@ -10,6 +10,25 @@
     <logo>https://hanjianfei111.github.io/images/avatar.png</logo>
     <icon>https://hanjianfei111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2025, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[xx产品网络安全与隐私保护评估报告]]></title>
+        <id>https://hanjianfei111.github.io/post/xx-chan-pin-wang-luo-an-quan-yu-yin-si-bao-hu-ping-gu-bao-gao/</id>
+        <link href="https://hanjianfei111.github.io/post/xx-chan-pin-wang-luo-an-quan-yu-yin-si-bao-hu-ping-gu-bao-gao/">
+        </link>
+        <updated>2025-10-22T07:00:28.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>目的<br>
+依据公司要求对公司产品进行把关，以客户视角评估XX产品的安全性，并验证是否符合公司及业界的安全标准、基线和规范，支撑领导及xx组织决策。</li>
+<li>评估对象<br>
+2.1 评估对象简介<br>
+介绍验证的产品的定位和功能介绍XX<br>
+2.2 评估范围<br>
+此次评估测试范围包括XX前台、XX后端及使用的XX框架。XX如底层环境如操作系统、网络配置等由XX统一维护，不在此次测试范围。<br>
+2.3 评估策略<br>
+此次检测是XX产品的第X个版本，一方面是回归之前测试发现的问题，检测产品是否对同类型问题进行全面排查整改，同时检测产品的修复方案是否存在漏洞；另一方面，扩展对XX框架和XX服务的安全测试，通过走读XX框架和XX服务的源码，进行其安全功能</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://hanjianfei111.github.io/post/hello-gridea/</id>
