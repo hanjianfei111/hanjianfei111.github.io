@@ -2,24 +2,20 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hello Gridea | Gridea</title>
+<title>xss | Gridea</title>
 <link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761644134073">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://hanjianfei111.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Hello Gridea | Gridea - Atom Feed" href="https://hanjianfei111.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="xss | Gridea - Atom Feed" href="https://hanjianfei111.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="👏  欢迎使用 Gridea ！
-✍️  Gridea 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...
-
-Github
-Gridea 主页
-示例网站
-特性👇
-📝  你可以使用最酷的 Markdo..." />
-    <meta name="keywords" content="Gridea" />
+    <meta name="description" content="xss解析顺序：html解析器最优先进行、之后可能是javascript解析或url解析
+分别对应html编码、unicode编码、url编码
+html通常以&amp;符号开始，比如“&lt;”对应 &lt;
+unicode编码通常\u后跟..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -81,63 +77,57 @@ Gridea 主页
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Hello Gridea
+              xss
             </h2>
             <div class="post-info">
               <span>
-                2018-12-12
+                2025-10-27
               </span>
               <span>
-                2 min read
+                3 min read
               </span>
-              
-                <a href="https://hanjianfei111.github.io/tag/5MpQroU0-D/" class="post-tag">
-                  # Gridea
-                </a>
               
             </div>
             
-              <img class="post-feature-image" src="https://hanjianfei111.github.io/post-images/hello-gridea.png" alt="">
-            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+                <p>xss解析顺序：html解析器最优先进行、之后可能是javascript解析或url解析<br>
+分别对应html编码、unicode编码、url编码</p>
+<p>html通常以&amp;符号开始，比如“&lt;”对应 &lt;<br>
+unicode编码通常\u后跟着四个十六进制数字</p>
+<p>反射型XSS<br>
+定义：反射型XSS也称为参数型XSS、非持久型，最常见用于将恶意脚本附加到URL地址的参数中，常出现在网站搜索栏、用户登入口等地方，用来窃取客户端cookie或进行钓鱼欺骗。</p>
+<p>利用方法：攻击者利用特定手法（Email、站内私信等），诱导用户去访问一个包含恶意代码的URL，当受害者单击这些恶意链接，JS代码直接在受害者主机上的浏览器执行。</p>
+<p>DOM型XSS<br>
+定义：DOM-Based XSS是基于DOM文档对象模型的一种漏洞，攻击者通过操纵DOM中的一些对象，例如URL、location等，在客户端输入的数据中，包含一些恶意的JavaScript代码，而如果这些脚本没经过适当过滤，应用程序可能受到基于DOM型的XSS攻击。</p>
+<p>存储型XSS<br>
+定义：存储型XSS也称持久型XSS。攻击者直接将恶意JS代码上传或存储到漏洞服务器中，当其他用户浏览该页面时，站点即从数据库中读取恶意用户存入的非法数据，即可在受害者浏览器上来执行恶意代码，持久型XSS常见网站留言板、评论、博客、日志等交互处。<br>
+提交恶意数据到后端服务器，他人访问同样页面会触发攻击。</p>
+<p>XSS 漏洞原理与实际案例介绍</p>
+<p>样例：<br>
+漏洞点：<button onclick="submitData('${htmlEncode(input)}')">submit</button> //input为被控制的输入<br>
+攻击方式：input = ');alert(1)//<br>
+攻击结果：<button onclick="submitData('');alert(1)//')">submit</button><br>
+原因：在进行元素的解析时，会将事件属性中的变量也一起放入当成一个整体进行解析，也就是上面提到的直接控制变量影响HTML渲染。尽管这里做了转码变为')alert(1)//，但是浏览器渲染的时候又会将属性中的'变为'。</p>
+<p>https://www.cnpanda.net/codeaudit/605.html</p>
 
               </div>
               <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
-</ul>
-</li>
-</ul>
-
+                
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hanjianfei111.github.io/post/mian-shi-fu-pan/">
+              <h3 class="post-title">
+                面试复盘
+              </h3>
+            </a>
+          </div>
         
 
         

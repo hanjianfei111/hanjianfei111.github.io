@@ -2,24 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hello Gridea | Gridea</title>
+<title>SUDO提权 | Gridea</title>
 <link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761644134073">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://hanjianfei111.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Hello Gridea | Gridea - Atom Feed" href="https://hanjianfei111.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="SUDO提权 | Gridea - Atom Feed" href="https://hanjianfei111.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="👏  欢迎使用 Gridea ！
-✍️  Gridea 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...
-
-Github
-Gridea 主页
-示例网站
-特性👇
-📝  你可以使用最酷的 Markdo..." />
-    <meta name="keywords" content="Gridea" />
+    <meta name="description" content="linux命令：
+1、查找无属主文件
+find / -nouser
+文件最小权限要求设置600，文件所属目录700
+2、查找服务器上是否存在JDK、readelf、gdb等开发测试工具
+find / -name jdk*
+find / -n..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -81,63 +80,75 @@ Gridea 主页
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Hello Gridea
+              SUDO提权
             </h2>
             <div class="post-info">
               <span>
-                2018-12-12
+                2025-10-28
               </span>
               <span>
-                2 min read
+                3 min read
               </span>
-              
-                <a href="https://hanjianfei111.github.io/tag/5MpQroU0-D/" class="post-tag">
-                  # Gridea
-                </a>
               
             </div>
             
-              <img class="post-feature-image" src="https://hanjianfei111.github.io/post-images/hello-gridea.png" alt="">
-            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+                <p>linux命令：<br>
+1、查找无属主文件<br>
+find / -nouser<br>
+文件最小权限要求设置600，文件所属目录700<br>
+2、查找服务器上是否存在JDK、readelf、gdb等开发测试工具<br>
+find / -name jdk*<br>
+find / -name gdb<br>
+find / -name readelf<br>
+3、查找全网监听端口命令<br>
+netstat -anp| grep -P '0.0.0.0:\d+|:::\d+'</p>
+<p>一. sudo简介<br>
+sudo是linux下的一种权限管理机制，是允许普通用户免密码切换到其它用户来执行命令的工具。带来便利的同时也存在了安全隐患。<br>
+二. sudo配置的原则<br>
+以root权限执行的操作，操作对象必须是安全的，否则，存在低权限用户提权到root的风险。<br>
+操作对象的安全性，包括：a.操作对象本身的属主、权限属性 b.操作对象所在目录，及递归的上级目录的属主、权限属性<br>
+原则包括：</p>
+<ol>
+<li>sudoers文件中配置的命令本身（配置字段ALL、/bin/passwd、cat、chmod…）</li>
+<li>sudoers中执行脚本内部的参数问题，sudo语句中执行的脚本入参没有标记双引号，可通过空格导致提权</li>
+<li>sudoers文件执行脚本内部引用了低权限用户所属的文件</li>
+</ol>
+<p>实践证明：违反该规则的配置都存在漏洞</p>
+<p>样例：<br>
+1、命令参数缺少范围限制<br>
+a)  test1 ALL=(root) NOPASSWD:/bin/cat<br>
+用户test1可进行sudo执行可提权root：sudo cat /etc/shadow<br>
+b)  test1 ALL=(root) NOPASSWD:ALL<br>
+用户test1可通过sudo执行任意命令，相当于提权至root<br>
+2、code ALL=(root) NOPASSWD: /chown.sh</p>
+<p>code	用户名：这条规则适用于名为code的用户<br>
+ALL	     主机名：规则适用于所有主机<br>
+（root）	以谁的身份运行：允许code用户以root身份执行命令<br>
+NOPASSWD	免密码：执行时不需要输入密码<br>
+:/chown.sh	允许的命令：只允许执行/chown.sh这个特定脚本<br>
+允许code用户在任何机器上，无需输入密码，以root权限执行/chown.sh这个脚本<br>
+切换到code用户后执行：sudo /chown.sh<br>
+如果chown.sh中内容可被利用，比如内容中涉及其他属主的目录或文件，可对目录或文件内容修改，导致提权。</p>
 
               </div>
               <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
-</ul>
-</li>
-</ul>
-
+                
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hanjianfei111.github.io/post/ai-da-mo-xing-xiang-guan-zi-liao-xia-zai/">
+              <h3 class="post-title">
+                AI大模型相关资料下载
+              </h3>
+            </a>
+          </div>
         
 
         

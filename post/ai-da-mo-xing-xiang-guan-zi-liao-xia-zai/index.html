@@ -1,67 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://hanjianfei111.github.io</id>
-    <title>Gridea</title>
-    <updated>2025-10-28T09:55:28.358Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://hanjianfei111.github.io"/>
-    <link rel="self" href="https://hanjianfei111.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://hanjianfei111.github.io/images/avatar.png</logo>
-    <icon>https://hanjianfei111.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2025, Gridea</rights>
-    <entry>
-        <title type="html"><![CDATA[SUDO提权]]></title>
-        <id>https://hanjianfei111.github.io/post/sudo-ti-quan/</id>
-        <link href="https://hanjianfei111.github.io/post/sudo-ti-quan/">
-        </link>
-        <updated>2025-10-28T09:02:40.000Z</updated>
-        <content type="html"><![CDATA[<p>linux命令：<br>
-1、查找无属主文件<br>
-find / -nouser<br>
-文件最小权限要求设置600，文件所属目录700<br>
-2、查找服务器上是否存在JDK、readelf、gdb等开发测试工具<br>
-find / -name jdk*<br>
-find / -name gdb<br>
-find / -name readelf<br>
-3、查找全网监听端口命令<br>
-netstat -anp| grep -P '0.0.0.0:\d+|:::\d+'</p>
-<p>一. sudo简介<br>
-sudo是linux下的一种权限管理机制，是允许普通用户免密码切换到其它用户来执行命令的工具。带来便利的同时也存在了安全隐患。<br>
-二. sudo配置的原则<br>
-以root权限执行的操作，操作对象必须是安全的，否则，存在低权限用户提权到root的风险。<br>
-操作对象的安全性，包括：a.操作对象本身的属主、权限属性 b.操作对象所在目录，及递归的上级目录的属主、权限属性<br>
-原则包括：</p>
-<ol>
-<li>sudoers文件中配置的命令本身（配置字段ALL、/bin/passwd、cat、chmod…）</li>
-<li>sudoers中执行脚本内部的参数问题，sudo语句中执行的脚本入参没有标记双引号，可通过空格导致提权</li>
-<li>sudoers文件执行脚本内部引用了低权限用户所属的文件</li>
-</ol>
-<p>实践证明：违反该规则的配置都存在漏洞</p>
-<p>样例：<br>
-1、命令参数缺少范围限制<br>
-a)  test1 ALL=(root) NOPASSWD:/bin/cat<br>
-用户test1可进行sudo执行可提权root：sudo cat /etc/shadow<br>
-b)  test1 ALL=(root) NOPASSWD:ALL<br>
-用户test1可通过sudo执行任意命令，相当于提权至root<br>
-2、code ALL=(root) NOPASSWD: /chown.sh</p>
-<p>code	用户名：这条规则适用于名为code的用户<br>
-ALL	     主机名：规则适用于所有主机<br>
-（root）	以谁的身份运行：允许code用户以root身份执行命令<br>
-NOPASSWD	免密码：执行时不需要输入密码<br>
-:/chown.sh	允许的命令：只允许执行/chown.sh这个特定脚本<br>
-允许code用户在任何机器上，无需输入密码，以root权限执行/chown.sh这个脚本<br>
-切换到code用户后执行：sudo /chown.sh<br>
-如果chown.sh中内容可被利用，比如内容中涉及其他属主的目录或文件，可对目录或文件内容修改，导致提权。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AI大模型相关资料下载]]></title>
-        <id>https://hanjianfei111.github.io/post/ai-da-mo-xing-xiang-guan-zi-liao-xia-zai/</id>
-        <link href="https://hanjianfei111.github.io/post/ai-da-mo-xing-xiang-guan-zi-liao-xia-zai/">
-        </link>
-        <updated>2025-10-27T06:39:38.000Z</updated>
-        <content type="html"><![CDATA[<p>外网下载地址【夸克网盘】：<br>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI大模型相关资料下载 | Gridea</title>
+<link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761644134073">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://hanjianfei111.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="AI大模型相关资料下载 | Gridea - Atom Feed" href="https://hanjianfei111.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="外网下载地址【夸克网盘】：
+https://pan.quark.cn/s/ef4f66a5ec0a
+外网下载地址【百度网盘提取码izg3】：
+https://pan.baidu.com/s/1Bbnw5tsK1b50oo2QfUiDqg?p..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hanjianfei111.github.io">
+  <img class="avatar" src="https://hanjianfei111.github.io/images/avatar.png?v=1761644134073" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              AI大模型相关资料下载
+            </h2>
+            <div class="post-info">
+              <span>
+                2025-10-27
+              </span>
+              <span>
+                15 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>外网下载地址【夸克网盘】：<br>
 https://pan.quark.cn/s/ef4f66a5ec0a<br>
 外网下载地址【百度网盘提取码izg3】：<br>
 https://pan.baidu.com/s/1Bbnw5tsK1b50oo2QfUiDqg?pwd=izg3<br>
@@ -344,171 +374,77 @@ https://pan.baidu.com/s/1TyIx4Upr8pqN459G22Rnfg?pwd=8d19<br>
 │<br>
 └─⑧、学习路线 课程大纲<br>
 MoPaaS·智泊Al企业级 大模型实战课大纲V5.0.15.pdf</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[xss]]></title>
-        <id>https://hanjianfei111.github.io/post/xss/</id>
-        <link href="https://hanjianfei111.github.io/post/xss/">
-        </link>
-        <updated>2025-10-27T03:51:25.000Z</updated>
-        <content type="html"><![CDATA[<p>xss解析顺序：html解析器最优先进行、之后可能是javascript解析或url解析<br>
-分别对应html编码、unicode编码、url编码</p>
-<p>html通常以&amp;符号开始，比如“&lt;”对应 &lt;<br>
-unicode编码通常\u后跟着四个十六进制数字</p>
-<p>反射型XSS<br>
-定义：反射型XSS也称为参数型XSS、非持久型，最常见用于将恶意脚本附加到URL地址的参数中，常出现在网站搜索栏、用户登入口等地方，用来窃取客户端cookie或进行钓鱼欺骗。</p>
-<p>利用方法：攻击者利用特定手法（Email、站内私信等），诱导用户去访问一个包含恶意代码的URL，当受害者单击这些恶意链接，JS代码直接在受害者主机上的浏览器执行。</p>
-<p>DOM型XSS<br>
-定义：DOM-Based XSS是基于DOM文档对象模型的一种漏洞，攻击者通过操纵DOM中的一些对象，例如URL、location等，在客户端输入的数据中，包含一些恶意的JavaScript代码，而如果这些脚本没经过适当过滤，应用程序可能受到基于DOM型的XSS攻击。</p>
-<p>存储型XSS<br>
-定义：存储型XSS也称持久型XSS。攻击者直接将恶意JS代码上传或存储到漏洞服务器中，当其他用户浏览该页面时，站点即从数据库中读取恶意用户存入的非法数据，即可在受害者浏览器上来执行恶意代码，持久型XSS常见网站留言板、评论、博客、日志等交互处。<br>
-提交恶意数据到后端服务器，他人访问同样页面会触发攻击。</p>
-<p>XSS 漏洞原理与实际案例介绍</p>
-<p>样例：<br>
-漏洞点：<button onclick="submitData('${htmlEncode(input)}')">submit</button> //input为被控制的输入<br>
-攻击方式：input = ');alert(1)//<br>
-攻击结果：<button onclick="submitData('');alert(1)//')">submit</button><br>
-原因：在进行元素的解析时，会将事件属性中的变量也一起放入当成一个整体进行解析，也就是上面提到的直接控制变量影响HTML渲染。尽管这里做了转码变为')alert(1)//，但是浏览器渲染的时候又会将属性中的'变为'。</p>
-<p>https://www.cnpanda.net/codeaudit/605.html</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[面试复盘]]></title>
-        <id>https://hanjianfei111.github.io/post/mian-shi-fu-pan/</id>
-        <link href="https://hanjianfei111.github.io/post/mian-shi-fu-pan/">
-        </link>
-        <updated>2025-10-22T09:33:22.000Z</updated>
-        <content type="html"><![CDATA[<p>1、cookie中有哪些属性与安全相关<br>
-a.   HttpOnly<br>
-作用：阻止javascript访问cookie(document.cookie)<br>
-防御：缓解XSS攻击（攻击者无法窃取身份凭据）<br>
-示例：Set-Cookie: sessionId=abc123; HttpOnly</p>
-<p>b. Secure<br>
-作用：仅允许HTTPS协议传输Cookie<br>
-防御：防止中间人攻击（明文传输时被窃取）<br>
-示例：Set-Cookie: token=xyz;Secure</p>
-<p>c.SameSite<br>
-作用：控制跨站请求是否发送Cookie<br>
-值选项：<br>
-Strict：完全禁止跨站发送（如银行操作）<br>
-Lax：允许安全GET请求（导航类请求）<br>
-None: 允许跨站发送（需配合Secure）<br>
-防御：阻止CSRF攻击<br>
-示例： Set-Cookie:card id=789; SameSite=Lax</p>
-<p>其他关键熟悉<br>
-Domain<br>
-风险：过度宽松配置导致子域名漏洞<br>
-错误示例：Domain=.example.com(所有子域可访问)<br>
-正确示例：Domain=app.example.com(仅限当前域)</p>
-<p>Path<br>
-作用：限制Cookie的URL路径范围<br>
-防御：减小攻击面（如管理后台Cookie限定到/admin路径）</p>
-<p>Expire/Max-Age<br>
-安全影响：过长的有效期增加被盗风险<br>
-最佳实践：会话cookie设为浏览器关闭失效，敏感操作使用短时效。</p>
-<figure data-type="image" tabindex="1"><img src="https://hanjianfei111.github.io/post-images/1761272744752.PNG" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[xx产品安全质量评估报告]]></title>
-        <id>https://hanjianfei111.github.io/post/hjf1/</id>
-        <link href="https://hanjianfei111.github.io/post/hjf1/">
-        </link>
-        <updated>2025-10-22T07:00:28.000Z</updated>
-        <content type="html"><![CDATA[<ol>
-<li>目的<br>
-依据公司要求对公司产品进行把关，以客户视角评估XX产品的安全性，并验证是否符合公司及业界的安全标准、基线和规范，支撑领导及xx组织决策。</li>
-<li>评估对象<br>
-2.1 评估对象简介<br>
-介绍验证的产品的定位和功能介绍XX<br>
-2.2 评估范围<br>
-此次评估测试范围包括XX前台、XX后端及使用的XX框架。XX如底层环境如操作系统、网络配置等由XX统一维护，不在此次测试范围。<br>
-2.3 评估策略<br>
-此次检测是XX产品的第X个版本，一方面是回归之前测试发现的问题，检测产品是否对同类型问题进行全面排查整改，同时检测产品的修复方案是否存在漏洞；另一方面，扩展对XX框架和XX服务的安全测试，通过走读XX框架和XX服务的源码，了解其安全功能实现机制，发现产品更深层次漏洞。<br>
-2.4  测试组网<br>
-附上产品XX组网图</li>
-<li>评估方法<br>
-采用基于风险的安全评估方法，在发现安全漏洞之外，更重要的是对产品或解决方案做出全面的安全评估，最大程度确保业务商用后客户侧潜在安全风险的最小化。<br>
-<img src="https://hanjianfei111.github.io/post-images/1761119071928.PNG" alt="" loading="lazy"><br>
-基于风险的安全评估方法从评估产品的系统和威胁分析开始，将产品系统分解后的各模块根据风险高低进行优先级排序，依据优先级对各模块分别进行合规测试和攻击测试。对测试结果做出相应的遗留风险分析，进一步做出商务决策。<br>
-安全评估方法，不仅包含XX公司内部在安全领域的优秀实践，还广泛吸收和引用安全业界优秀的实践、标准、法规等。<br>
-行业最佳实践/标准，如OWASP，NIST 800-115，Microsoft STRIDE等<br>
-实时的行业差距分析、热点安全事故跟踪等<br>
-法律、法规和客户的安全要求等。</li>
-<li>问题定级标准<br>
-使用业界CVSSv3标准进行打分定级；隐私保护类问题如果违反业界规则，通常判定为严重问题。</li>
-<li>分析过程<br>
-5.1 系统分析<br>
-5.1.1 典型业务场景<br>
-XXX详细描述被测产品相关的业务场景<br>
-5.1.2 系统架构<br>
-附上XX产品的系统架构图<br>
-5.1.3 相关接口<br>
-附上外部交互的接口、内部的接口清单<br>
-5.1.4 版本差异分析<br>
-对于迭代版本，列出与上次版本之间的差异点：包含功能变化点、接口变化、架构变化等。<br>
-5.2 威胁分析<br>
-附上产品的数据流图<br>
-5.2.1 安全边界分析<br>
-列出相应的安全边界<br>
-5.2.2 安全风险分析<br>
-列出产品的关键资产：包含敏感业务数据、与用户、薪酬、交易等强关联<br>
-列出安全威胁：<br>
-1、web安全：恶意用户可以通过console界面进行攻击，如注入类攻击（sql注入、命令注入等）、账号安全、权限控制、任意文件上传/下载等。<br>
-2、产品权限限制：重点测试不同用户、不同权限级别是否做好严格权限校验<br>
-3、系统配置：涉及三方应用配置，如配置中心、配置文件、启动参数等，是否出现信息泄露等问题。<br>
-5.3 隐私保护分析<br>
-按照业界隐私规范项排查，识别是否产品为数据控制者还是数据处理者？<br>
-是否涉及个人敏感数据（婚姻、血型、性取向、身份证号等）、数据收集、使用、留存和处理等。</li>
-<li>规范性验证<br>
-6.1 包含密码算法规范、密钥管理规范、会话管理规范等<br>
-密码算法的选择及随机数的生成、密钥分层管理，即：根密钥和工作密钥要分开，密钥的更新和生成要足够安全，会话维持和会话销毁等。</li>
-<li>渗透验证<br>
-7.1 病毒扫描<br>
-产品要进行多款杀毒软件扫描，包含服务上线的所有安装包。<br>
-并对扫描结果做分析和问题解决。<br>
-7.2 端口扫描<br>
-通常使用Nmap<br>
-7.3 开源漏洞扫描</li>
-<li>发现问题总览<br>
-问题统计：<br>
-XX个致命、XX个严重、XX个一般，XX个提示</li>
-<li>遗留问题清单<br>
-遗留问题要给出风险描述、规避措施、修复计划等</li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://hanjianfei111.github.io/post/hello-gridea/</id>
-        <link href="https://hanjianfei111.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
-</feed>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hanjianfei111.github.io/post/xss/">
+              <h3 class="post-title">
+                xss
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://hanjianfei111.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
