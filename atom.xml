@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hanjianfei111.github.io</id>
     <title>Gridea</title>
-    <updated>2025-10-30T08:18:58.794Z</updated>
+    <updated>2025-10-30T08:34:55.312Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hanjianfei111.github.io"/>
     <link rel="self" href="https://hanjianfei111.github.io/atom.xml"/>
@@ -28,27 +28,12 @@ CSP 的核心概念是“白名单制度”。它通过一个特殊的 HTTP 响�
 三、CSP 策略详解：如何制定“白名单”？<br>
 CSP 策略由一系列指令构成，每个指令控制一种特定类型资源的加载来源。<br>
 常见指令及其作用<br>
-指令	控制的资源	示例	解释<br>
-default-src	所有资源的默认来源（是其他指令的备选方案）	default-src 'self'	默认只允许从本站加载资源。这是最重要的指令。<br>
-script-src	JavaScript 脚本	script-src 'self' https://apis.google.com	只允许执行来自本站和 https://apis.google.com 的脚本。<br>
-style-src	样式表	style-src 'self' 'unsafe-inline'	允许本站的样式和内联样式（不推荐）。<br>
-img-src	图片	img-src 'self' data: https://cdn.example.com	允许本站图片、data:协议图片和指定CDN的图片。<br>
-font-src	字体文件	font-src 'self' https://fonts.gstatic.com	允许本站和Google Fonts的字体。<br>
-connect-src	网络连接	connect-src 'self' https://api.myapp.com	限制可连接的源，如 XHR、Fetch、WebSocket。<br>
-frame-src	嵌入框架	frame-src https://youtube.com	限制可嵌入的框架，如 <iframe>。<br>
-report-uri	违规报告	report-uri /csp-violation-report-endpoint	当策略被违反时，向此URL发送报告。<br>
-常用的源关键字<br>
-关键字	含义	示例<br>
-'self'	只允许来自同源（相同协议、域名、端口）的资源。	script-src 'self'<br>
-'none'	不允许任何来源。	object-src 'none'<br>
-'unsafe-inline'	允许使用内联资源（如 <script>...</script>）。慎用！	style-src 'self' 'unsafe-inline'<br>
-'unsafe-eval'	允许动态代码执行（如 eval()）。慎用！	script-src 'self' 'unsafe-eval'<br>
-https:	允许所有 HTTPS 源的资源。	img-src https:<br>
-data:	允许 data: URI 形式的资源（如内嵌图片）。	img-src 'self' data:<br>
+<img src="https://hanjianfei111.github.io/post-images/1761812839353.PNG" alt="" loading="lazy"></p>
+<p>常用的源关键字<br>
+<img src="https://hanjianfei111.github.io/post-images/1761812907947.PNG" alt="" loading="lazy"><br>
 四、实战示例：CSP 策略分析<br>
 假设我们有一个网站，它的 CSP 头如下：<br>
-Http<br>
-Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; report-uri /csp-report<br>
+<img src="https://hanjianfei111.github.io/post-images/1761813084137.PNG" alt="" loading="lazy"><br>
 让我们分解这个策略：</p>
 <ol>
 <li>default-src 'self';：<br>
@@ -59,7 +44,7 @@ o	效果：阻止所有其他来源的脚本，包括页面上的内联脚本（
 <li>img-src 'self' https: data:;：<br>
 o	图片规则：允许加载本站、任何HTTPS网站以及data:URI格式的图片。</li>
 <li>style-src 'self' 'unsafe-inline';：<br>
-o	样式规则：允许本站的样式表和内联样式（<style>标签）。<br>
+o	样式规则：允许本站的样式表和内联样式。<br>
 o	注意：允许内联样式 (‘unsafe-inline’) 会降低对CSS注入攻击的防护，但有时是迁就旧代码的无奈之举。</li>
 <li>report-uri /csp-report;：<br>
 o	报告规则：任何违反上述策略的行为都会被浏览器记录下来，并以JSON格式发送到网站的 /csp-report 端点。这对调试和监控攻击尝试非常有用。<br>
@@ -70,7 +55,7 @@ o	影响：脚本、样式、字体、连接等都可以来自互联网上任意
 •	'unsafe-eval'：允许使用动态代码执行函数，如 eval(), setTimeout(string), new Function() 等。<br>
 o	风险：许多基于DOM的XSS攻击依赖这些函数来执行恶意负载。此指令为这类攻击敞开了大门。<br>
 •	'unsafe-inline'：允许执行内联资源。<br>
-o	风险：允许页面中的内联 <script> 块和内联事件处理程序（如 onclick=&quot;...&quot;）。攻击者如果能够向页面注入HTML，他们注入的恶意内联脚本将能够执行。这几乎完全抵消了CSP防御XSS的核心价值。<br>
+o	风险：允许页面中的内联script块和内联事件处理程序（如 onclick=&quot;...&quot;）。攻击者如果能够向页面注入HTML，他们注入的恶意内联脚本将能够执行。这几乎完全抵消了CSP防御XSS的核心价值。<br>
 •	*.test.com：允许从 test.com 及其所有子域加载资源。<br>
 o	注意：由于前面已经有了 https:，这个源指示实际上是冗余的，因为 https: 已经涵盖了所有HTTPS网站，包括 *.test.com。<br>
 总结：default-src 指令实际上等同于 “允许从任何地方加载HTTPS资源，并允许执行任何形式的代码”。这为XSS攻击提供了极大的便利。<br>
@@ -81,7 +66,7 @@ o	注意：由于前面已经有了 https:，这个源指示实际上是冗余�
 部署建议<br>
 •	从报告模式开始：在正式启用拦截策略前，可以先使用 Content-Security-Policy-Report-Only 头。该头只报告违规行为而不阻止它们，帮助你安全地测试和调整策略。<br>
 •	采用“最小权限原则”：只授予必要的权限。例如，如果不需要内联脚本，就绝不使用 ‘unsafe-inline’。<br>
-总结：CSP 是一种声明式的、强大的浏览器端安全机制，它通过建立可信资源白名单，极大地增加了攻击者利用XSS等漏洞的难度，是现代Web应用必备的安全防护措施之一。</li>
+总结：CSP 是一种声明式的、强大的浏览器端安全机制，它通过建立可信资源白名单，极大地增加了攻击者利用XSS等漏洞的难度，是现代Web应用必备的安全防护措施之一。”</li>
 </ol>
 ]]></content>
     </entry>
