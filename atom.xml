@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hanjianfei111.github.io</id>
     <title>Gridea</title>
-    <updated>2025-10-30T08:37:56.033Z</updated>
+    <updated>2025-10-30T08:38:46.487Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hanjianfei111.github.io"/>
     <link rel="self" href="https://hanjianfei111.github.io/atom.xml"/>
@@ -40,7 +40,7 @@ CSP 策略由一系列指令构成，每个指令控制一种特定类型资源�
 o	默认规则：所有类型的资源，如果没有特别指定，都只允许从本站加载。</li>
 <li>script-src 'self' https://cdnjs.cloudflare.com;：<br>
 o	脚本规则：允许执行来自本站和 https://cdnjs.cloudflare.com（一个公共CDN）的JavaScript。<br>
-o	效果：阻止所有其他来源的脚本，包括页面上的内联脚本（如 <script>alert('xss')</script>）和 eval() 等函数。</li>
+o	效果：阻止所有其他来源的脚本，包括页面上的内联脚本（如 <script>alert('hjfxss')</script>）和 eval() 等函数。</li>
 <li>img-src 'self' https: data:;：<br>
 o	图片规则：允许加载本站、任何HTTPS网站以及data:URI格式的图片。</li>
 <li>style-src 'self' 'unsafe-inline';：<br>
