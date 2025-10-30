@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CSP | Gridea</title>
-<link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761813706127">
+<link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761813913062">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://hanjianfei111.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="CSP | Gridea - Atom Feed" href="https://hanjianfei111.github.io/atom.xml">
@@ -24,7 +24,7 @@ CSP 的核心概念是“白名单制度”。它通过一个特殊的 HTTP ..."
       <div class="main-content">
         <div class="site-header">
   <a href="https://hanjianfei111.github.io">
-  <img class="avatar" src="https://hanjianfei111.github.io/images/avatar.png?v=1761813706127" alt="">
+  <img class="avatar" src="https://hanjianfei111.github.io/images/avatar.png?v=1761813913062" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -95,7 +95,7 @@ CSP 的核心概念是“白名单制度”。它通过一个特殊的 HTTP ..."
 csp策略可通过nginx、Apache等配置文件进行配置。<br>
 一、CSP 是什么？<br>
 CSP 的核心概念是“白名单制度”。它通过一个特殊的 HTTP 响应头（Content-Security-Policy）告诉浏览器：“这个网页只允许加载和执行来自我明确认可的来源的资源，其他一律阻止。”<br>
-换句话说，即使攻击者成功向你的网站注入了恶意脚本（例如通过XSS），如果该脚本的来源不在你批准的“白名单”上，浏览器也不会执行它，从而从根本上遏制了攻击。<br>
+换句话说，即使攻击者成功向你的网站注入了恶意脚本（例如通过XSS1），如果该脚本的来源不在你批准的“白名单”上，浏览器也不会执行它，从而从根本上遏制了攻击。<br>
 二、CSP 是如何工作的？一个生动的比喻<br>
 想象一下你的网站是一个高级派对（你的网页），而浏览器是门口的保安（执行策略）。<br>
 •	没有 CSP 的情况： 保安允许任何人（任何脚本、资源）进入派对，只要他们看起来是客人。攻击者可以轻易伪装成客人混入。<br>
