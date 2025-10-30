@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>xss | Gridea</title>
-<link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761644134073">
+<link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761811572684">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://hanjianfei111.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="xss | Gridea - Atom Feed" href="https://hanjianfei111.github.io/atom.xml">
@@ -11,10 +11,11 @@
 
 
 
-    <meta name="description" content="xss解析顺序：html解析器最优先进行、之后可能是javascript解析或url解析
+    <meta name="description" content="
+xss解析顺序：html解析器最优先进行、之后可能是javascript解析或url解析
 分别对应html编码、unicode编码、url编码
 html通常以&amp;符号开始，比如“&lt;”对应 &lt;
-unicode编码通常\u后跟..." />
+unicode编码通常\u后..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -24,7 +25,7 @@ unicode编码通常\u后跟..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://hanjianfei111.github.io">
-  <img class="avatar" src="https://hanjianfei111.github.io/images/avatar.png?v=1761644134073" alt="">
+  <img class="avatar" src="https://hanjianfei111.github.io/images/avatar.png?v=1761811572684" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -91,15 +92,16 @@ unicode编码通常\u后跟..." />
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>xss解析顺序：html解析器最优先进行、之后可能是javascript解析或url解析<br>
+                <!-- more -->
+<p>xss解析顺序：html解析器最优先进行、之后可能是javascript解析或url解析<br>
 分别对应html编码、unicode编码、url编码</p>
 <p>html通常以&amp;符号开始，比如“&lt;”对应 &lt;<br>
 unicode编码通常\u后跟着四个十六进制数字</p>
 <p>反射型XSS<br>
-定义：反射型XSS也称为参数型XSS、非持久型，最常见用于将恶意脚本附加到URL地址的参数中，常出现在网站搜索栏、用户登入口等地方，用来窃取客户端cookie或进行钓鱼欺骗。</p>
+定义：反射型XSS也称为参数型XSS、非持久型，最常见用于将恶意脚本附加到URL地址的参数中，常出现在网站搜索栏、用户登入口等地方，用来窃取客户端cookie或进行钓鱼欺骗。反射型根因是服务端漏洞。</p>
 <p>利用方法：攻击者利用特定手法（Email、站内私信等），诱导用户去访问一个包含恶意代码的URL，当受害者单击这些恶意链接，JS代码直接在受害者主机上的浏览器执行。</p>
 <p>DOM型XSS<br>
-定义：DOM-Based XSS是基于DOM文档对象模型的一种漏洞，攻击者通过操纵DOM中的一些对象，例如URL、location等，在客户端输入的数据中，包含一些恶意的JavaScript代码，而如果这些脚本没经过适当过滤，应用程序可能受到基于DOM型的XSS攻击。</p>
+定义：DOM-Based XSS是基于DOM文档对象模型的一种漏洞，攻击者通过操纵DOM中的一些对象，例如URL、location等，在客户端输入的数据中，包含一些恶意的JavaScript代码，而如果这些脚本没经过适当过滤，应用程序可能受到基于DOM型的XSS攻击。DOM型是前端漏洞。</p>
 <p>存储型XSS<br>
 定义：存储型XSS也称持久型XSS。攻击者直接将恶意JS代码上传或存储到漏洞服务器中，当其他用户浏览该页面时，站点即从数据库中读取恶意用户存入的非法数据，即可在受害者浏览器上来执行恶意代码，持久型XSS常见网站留言板、评论、博客、日志等交互处。<br>
 提交恶意数据到后端服务器，他人访问同样页面会触发攻击。</p>

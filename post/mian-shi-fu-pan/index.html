@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>面试复盘 | Gridea</title>
-<link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761644134073">
+<link rel="shortcut icon" href="https://hanjianfei111.github.io/favicon.ico?v=1761811572684">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://hanjianfei111.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="面试复盘 | Gridea - Atom Feed" href="https://hanjianfei111.github.io/atom.xml">
@@ -25,7 +25,7 @@ a.   HttpOnly
       <div class="main-content">
         <div class="site-header">
   <a href="https://hanjianfei111.github.io">
-  <img class="avatar" src="https://hanjianfei111.github.io/images/avatar.png?v=1761644134073" alt="">
+  <img class="avatar" src="https://hanjianfei111.github.io/images/avatar.png?v=1761811572684" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -85,7 +85,7 @@ a.   HttpOnly
                 2025-10-22
               </span>
               <span>
-                2 min read
+                3 min read
               </span>
               
             </div>
@@ -121,6 +121,17 @@ Domain<br>
 安全影响：过长的有效期增加被盗风险<br>
 最佳实践：会话cookie设为浏览器关闭失效，敏感操作使用短时效。</p>
 <figure data-type="image" tabindex="1"><img src="https://hanjianfei111.github.io/post-images/1761272744752.PNG" alt="" loading="lazy"></figure>
+<p>2、安全测试过程中，发现部分url请求403，考虑怎么进一步测试？<br>
+返回403（禁止访问）状态码，意味着碰触到了服务器的访问控制机制。<br>
+a.  可考虑修改HTTP方法：尝试将GET改为POST、PUT、DELETE、PATCH、OPTIONS。OPTIONS方法可能会返回服务器允许的方法列表。<br>
+b. 请求头：检查原始请求是否携带特定的头（如 Authorization\Referer\User-Agent）.缺失或错误的头部可能会导致403，可尝试伪造请求头，如X-Forwarded-For、Referer等。<br>
+c.  参数：分析URL路径和查询字符串中的每一个参数。尝试识别出用于标识用户、角色或资源的参数。<br>
+d. 路径回溯：如果请求URL是/api/v1/users/admin/profile,尝试访问其父路径，如/api/v1/users/admin/或/api/v1/users。有时对目录的访问控制与对具体文件的控制不同。<br>
+e. 寻找隐藏文件或备份文件：可对路径添加常见后缀，尝试发现备份文件或副本。<br>
+对于/api/v1/config，尝试变成/api/v1/config.bak  、/api/v1/config.txt、<br>
+/api/v1/config~(常见的备份符号)<br>
+f.  路径的遍历与重写：<br>
+对URL中的特殊字符进行编码、大小写变换，添加../ ./等</p>
 
               </div>
               <div class="toc-container">
